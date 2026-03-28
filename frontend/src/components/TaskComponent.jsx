@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const API_URL = "http://localhost:5000/api";
 
@@ -9,7 +9,7 @@ const TaskComponent = () => {
   // 4.4 Fetch all tasks
   const fetchTasks = async () => {
     try {
-      const response = await fetch(`${API_URL}/tasks`);
+      const response = await fetch(`${API_URL}/task`);
       const data = await response.json();
       setTasks(data);
     } catch (error) {
@@ -19,10 +19,11 @@ const TaskComponent = () => {
 
   // Create a new task
   const createTask = async () => {
+    console.log("Creating task with title:", inputValue); // Debug log
     if (!inputValue.trim()) return; // Don't create empty tasks
 
     try {
-      const response = await fetch(`${API_URL}/tasks`, {
+      const response = await fetch(`${API_URL}/task`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: inputValue }),
@@ -38,7 +39,7 @@ const TaskComponent = () => {
   // 4.3 Update task status logic
   const updateTaskStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`${API_URL}/tasks/${id}`, {
+      const response = await fetch(`${API_URL}/task/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),

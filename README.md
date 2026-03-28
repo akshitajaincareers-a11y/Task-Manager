@@ -26,9 +26,9 @@ npm install
 Create a .env file in the backend directory and add your credentials:
 
 Code snippet
+NODE_ENV="development"
 PORT=5000
-MONGO_URI=mongodb+srv://demo:Akshita%40555@cluster0.kkrc3if.mongodb.net/task-manager?retryWrites=true&w=majority
-NODE_ENV=development
+MONGO_URI=mongodb+srv://demo:Akshita123@cluster0.kkrc3if.mongodb.net/?appName=Cluster0
 Note: The @ in the password has been URL-encoded to %40 to ensure a successful connection.
 
 Start the server:

@@ -20,7 +20,7 @@ app.get('/test', (req, res) => {
 });
 
 
-app.use('/api/task', require('./routes/taskRoute')); // Importing user routes
+app.use('/api/tasks', require('./routes/taskRoute')); // Importing user routes
 
 app.use((err, req, res, next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;

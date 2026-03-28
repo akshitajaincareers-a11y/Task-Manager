@@ -9,7 +9,7 @@ const TaskComponent = () => {
   // 4.4 Fetch all tasks
   const fetchTasks = async () => {
     try {
-      const response = await fetch(`${API_URL}/task`);
+      const response = await fetch(`${API_URL}/tasks`);
       const data = await response.json();
       setTasks(data);
     } catch (error) {
@@ -23,7 +23,7 @@ const TaskComponent = () => {
     if (!inputValue.trim()) return; // Don't create empty tasks
 
     try {
-      const response = await fetch(`${API_URL}/task`, {
+      const response = await fetch(`${API_URL}/tasks`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: inputValue }),
@@ -39,7 +39,7 @@ const TaskComponent = () => {
   // 4.3 Update task status logic
   const updateTaskStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`${API_URL}/task/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),
